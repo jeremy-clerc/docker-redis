@@ -3,7 +3,7 @@ docker-redis
 
 This Dockerfile builds a redis on top of a Debian.
 
-It downloads the latest stable source availabe at this time: 2.8.5
+It downloads the latest stable source availabe.
 
 You can then run it as server or as client.
 

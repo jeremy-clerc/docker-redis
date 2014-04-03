@@ -1,5 +1,4 @@
-# Install redis from source
-# Actual stable version is 2.8.5
+# Install redis from source using stable
 # To run the server
 #    sudo docker run -d -m 2g -name redis-server jeremyclerc/docker-redis
 # If you want to use client not from a docker, expose the ports 
@@ -21,9 +20,9 @@ MAINTAINER Jeremy Clerc <jeremy@clerc.io>
 
 RUN apt-get update && apt-get -y install wget build-essential && apt-get clean
 
-RUN wget -O- http://download.redis.io/releases/redis-2.8.5.tar.gz | tar xz
+RUN wget -O- http://download.redis.io/releases/redis-stable.tar.gz | tar xz
 
-RUN cd redis-2.8.5/ && make && make install
+RUN cd redis-stable/ && make && make install
 
 # Custom config, with only memory use
 # Max memory of 2G
@@ -36,4 +35,4 @@ ADD ./start_cli.sh /root/start_cli.sh
 EXPOSE 6379
 
 # If no argument, run Redis Server
-CMD ["/redis-2.8.5/src/redis-server", "/etc/redis.conf"]
+CMD ["/redis-stable/src/redis-server", "/etc/redis.conf"]
